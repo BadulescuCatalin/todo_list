@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { AddTodo } from './components/AddTodo';
+import { NavBar } from './components/NavBar';
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { RemoveTodo } from './components/RemoveTodo';
+import { AllTodos } from './components/AllTodos';
+import { TodoById } from './components/TodoById';
+import { HelloPage } from './components/HelloPage'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      
+        <NavBar />
+        <Routes>
+          <Route path="" element={<HelloPage/> }></Route>
+          <Route path="addTodo" element={<AddTodo />}></Route>
+          <Route path="removeTodo" element={<RemoveTodo />}></Route>
+          <Route path="allTodos" element={<AllTodos />}></Route>
+          <Route path="todoById" element={<TodoById />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
+
   );
 }
 
